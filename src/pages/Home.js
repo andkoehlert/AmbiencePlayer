@@ -1,5 +1,7 @@
 import React from "react";
 import Title from "../components/Title";
+import "../App.css";
+
 import Todo from "../components/Todo";
 import AudioPlayer from "../components/AudioPlayer"
 import {
@@ -25,9 +27,8 @@ function Home() {
   }, []);
 
   return (
-    <div className="App">
-      <div>
-        <Title />
+    <div className="homepage-background"> {/* Apply the class here */}      <div>
+      
       </div>
       <div className="todo_container">
         {todos.map((todo) => (
@@ -35,7 +36,7 @@ function Home() {
           
         ))}
       </div>
-      <AudioPlayer />
+    
     </div>
 
 

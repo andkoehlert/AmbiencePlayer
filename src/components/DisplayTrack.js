@@ -6,3 +6,4 @@ const DisplayTrack = ({ currentTrack }) => {
   );
 };
 export default DisplayTrack;
+

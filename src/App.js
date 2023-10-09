@@ -5,6 +5,7 @@ import Admin from "./pages/Admin"
 import React from "react";
 import { Route, Routes } from "react-router-dom"
 
+
 function App() {
   return (
     <>
@@ -23,6 +24,7 @@ function App() {
       
       </div>
     </>
+    
   )
 }
 

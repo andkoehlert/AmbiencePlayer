@@ -2,7 +2,7 @@ import React from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import AudioPlayer from "./AudioPlayer"; // Import your AudioPlayer component here
+import AudioPlayer from "./AudioPlayer";
 
 export default function Todo({
   todo,
@@ -16,10 +16,9 @@ export default function Todo({
 
   const handleChange = (e) => {
     e.preventDefault();
-    if (todo.complete === true) {
+    if (todo.completed === true) {
       setNewTitle(todo.title);
     } else {
-      todo.title = "";
       setNewTitle(e.target.value);
     }
   };
@@ -32,15 +31,18 @@ export default function Todo({
         </p>
       ) : (
         <>
-          <input
-            style={{ textDecoration: todo.completed && "line-through" }}
-            type="text"
-            value={newTitle}
-            className="list"
-            onChange={handleChange}
-          />
           <div>
-            {showButtons && ( // Conditionally render buttons based on showButtons prop
+            <img src={todo.imageUrl} alt="Todo" /> {/* Display the image */}
+          </div>
+          <div>
+            <input
+              style={{ textDecoration: todo.completed && "line-through" }}
+              type="text"
+              value={newTitle}
+              className="list"
+              onChange={handleChange}
+            />
+            {showButtons && (
               <>
                 <button
                   className="button-complete"
@@ -54,12 +56,15 @@ export default function Todo({
                 >
                   <EditIcon id="i" />
                 </button>
-                <button className="button-delete" onClick={() => handleDelete(todo.id)}>
+                <button
+                  className="button-delete"
+                  onClick={() => handleDelete(todo.id)}
+                >
                   <DeleteIcon id="i" />
                 </button>
               </>
             )}
-            {/* Render the AudioPlayer component here */}
+        
             <AudioPlayer />
           </div>
         </>
