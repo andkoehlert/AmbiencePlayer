@@ -27,10 +27,10 @@ function Home() {
   }, []);
 
   return (
-    <div className="homepage-background"> {/* Apply the class here */}      <div>
+    <div className="homepage-background  "> {/* Apply the class here */}      <div>
       
       </div>
-      <div className="todo_container">
+      <div className="  ">
         {todos.map((todo) => (
           <Todo key={todo.id} todo={todo} showButtons={false} /> 
           

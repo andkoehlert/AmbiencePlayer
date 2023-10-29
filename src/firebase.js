@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage'
-
+import { getAuth } from 'firebase/auth'
 const firebaseConfig = {
   apiKey: "AIzaSyDQkgJ2EZb7qdgCp1fhQC0TQ7DEcT6zY4U",
   authDomain: "music-9913a.firebaseapp.com",
@@ -12,8 +12,10 @@ const firebaseConfig = {
 };
 const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
-export const storage = getStorage(firebaseApp)
 
+
+export const storage = getStorage(firebaseApp)
+export const auth = getAuth(firebaseApp)
 export { db };
 
 

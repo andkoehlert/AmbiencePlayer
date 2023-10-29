@@ -1,8 +1,11 @@
-const AudioPlayer = () => {
+import React from 'react';
+
+const Controls = ({ onPlayPause }) => {
   return (
-    <div className="audio-player">
-      <div className="inner">Audio player content</div>
+    <div className="controls ">
+      <button onClick={onPlayPause}></button>
     </div>
   );
 };
-export default AudioPlayer;
+
+export default Controls;

@@ -1,6 +1,4 @@
-import "../App.css";
 import React from "react";
-import Title from "../components/Title";
 import AddTodo from "../components/AddTodo";
 import Todo from "../components/Todo";
 import {
@@ -13,7 +11,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 
-function Admin() {
+function Admin({ isAuthenticated }) {
   const [todos, setTodos] = React.useState([]);
 
   React.useEffect(() => {
@@ -31,35 +29,49 @@ function Admin() {
   const handleEdit = async (todo, title) => {
     await updateDoc(doc(db, "todos", todo.id), { title: title });
   };
+
   const toggleComplete = async (todo) => {
     await updateDoc(doc(db, "todos", todo.id), { completed: !todo.completed });
   };
+
   const handleDelete = async (id) => {
     await deleteDoc(doc(db, "todos", id));
   };
 
+  if (isAuthenticated) {
+    console.log('Not authenticated. Redirecting or showing a message...');
+
+    return <p>You are not authorized to access this page.</p>;
+    
+  }
+  
+
   return (
-    <div className="App">
-      <div>
-        <Title />
-      </div>
+    <div className="">
+      
       <div>
         <AddTodo />
       </div>
-      <div className="todo_container">
+      <div className="homepage-background"> {/* Apply the class here */}      <div>
+      
+      </div>
+      <div className="todo_container ">
         {todos.map((todo) => (
-          <Todo 
-            key={todo.id}
-            todo={todo}
-            showButtons={true}
-            showTextOnly={false} // Pass false to display everything
-            toggleComplete={toggleComplete}
-            handleDelete={handleDelete}
-            handleEdit={handleEdit}
-          />
+          <Todo
+key={todo.id}
+todo={todo}
+showButtons={true}
+showTextOnly={false} // Pass false to display everything
+toggleComplete={toggleComplete}
+handleDelete={handleDelete}
+handleEdit={handleEdit}
+/>          
         ))}
       </div>
+    
+    </div>
     </div>
   );
 }
+
 export default Admin;
