@@ -97,7 +97,7 @@ form input {
 }
 .todo input {
   cursor: pointer;
-  width: 50%;
+  width: 100%;
   border: none;
   outline: none;
   cursor: pointer;
@@ -143,13 +143,15 @@ button:focus {
 }
 
 
-/* Style for the audio controls */
+.video-text{
+  font-size: 15px;
+}
 
+.audio-text{
+  font-size: 15px;
+}
 
-/* Style for other components within the audio player (e.g., progress bar, volume control, etc.) */
-
-
-/* Style for the progress bar */
-
-/* Style for volume control */
+.image-text{
+  font-size: 15px;
+}
 

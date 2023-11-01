@@ -5,6 +5,8 @@ import { auth } from '../firebase';
 const LogIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -12,11 +14,15 @@ const LogIn = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log('Successfully logged in:', userCredential);
+        setSuccessMessage('User logged in successfully!');
+        setErrorMessage(''); // Clear any previous error messages
         // Redirect to the test page upon successful login
         window.location.href = '/admin'; // Update the path based on your route setup
       })
       .catch((error) => {
         console.error('Login error:', error.message);
+        setErrorMessage('Error loggin in. Please try again.');
+        setSuccessMessage(''); // Clear any previous success messages
       });
   };
 
@@ -39,6 +45,8 @@ const LogIn = () => {
         />
 
         <button type="submit">Log In</button>
+        {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
+        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
       </form>
     </div>
   );

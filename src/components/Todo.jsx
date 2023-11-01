@@ -86,7 +86,7 @@ export default function Todo({
             <div className="flex flex-col items-center flex-wrap text-xs	">
             <input
               className="	 "
-              style={{ textDecoration: todo.completed && "line-through", fontSize: "30px", fontWeight: "bold" }}
+              style={{ textDecoration: todo.completed && "line-through", fontSize: "20px", fontWeight: "bold" }}
               value={newTitle}
             />
             <input

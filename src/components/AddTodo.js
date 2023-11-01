@@ -188,7 +188,7 @@ export default function AddTodo() {
         >
           <option value="">Select an image</option>
           {imageUrls.map((url) => (
-            <option key={url} value={url}>
+            <option key={url} value={url} className="image-text">
             {url.split('.').pop()} {/* Get the last part of the path which is the file name */}
           </option>
           ))}
@@ -196,14 +196,14 @@ export default function AddTodo() {
       </div>
       <div>
         <select
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded "
 
           value={selectedVideoURL}
           onChange={(e) => setSelectedVideoURL(e.target.value)}
         >
-          <option value="">Select a video</option>
+          <option className="text-sm" value="">Select a video</option>
           {videoUrls.map((url) => (
-         <option key={url} value={url}>
+         <option key={url} value={url} className="video-text">
          {url.split('.').pop()} {/* Get the last part of the path which is the file name */}
        </option>
           ))}
@@ -218,7 +218,7 @@ export default function AddTodo() {
         >
           <option value="">Select an audio file</option>
           {audioUrls.map((url) => (
-           <option key={url} value={url}>
+           <option key={url} value={url} className="audio-text">
            {url.split('.').pop()} {/* Get the last part of the path which is the file name */}
          </option>
           ))}

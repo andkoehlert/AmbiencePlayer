@@ -8,3 +8,5 @@ const LogIn = () => {
 }
 
 export default LogIn
+
+// Login page for admin users. 
