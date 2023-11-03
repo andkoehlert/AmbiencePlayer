@@ -16,6 +16,7 @@ export default function Todo({
   const [newTitle, setNewTitle] = useState(todo.title);
   const [volume, setVolume] = useState(1);
   const [newDescription, setNewDescription] = useState(todo.description);
+  const isMobile = window.innerWidth <= 768; //
 
  
   
@@ -64,9 +65,11 @@ export default function Todo({
                 className="w-full  object-cover min-h-[1200px] md:min-h-screen "
                 autoPlay
                 loop
+                muted={isMobile}
                 controls
                 volume={volume}
                 id="myVideo"
+
               >
                 <source src={todo.videoURL} type="video/mp4" />
                 Your browser does not support the video tag.
@@ -76,7 +79,7 @@ export default function Todo({
             )}
           </div>
 
-          <div className="flex flex-col z-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <div className="flex pb-60 flex-col z-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <div className="flex flex-col items-center flex-wrap text-xs	">
             <input
               className="	 "
