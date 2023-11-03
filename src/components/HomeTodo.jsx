@@ -3,12 +3,13 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AudioPlayer from "./AudioPlayer";
-// This is the main todo component which is used in the admin page
+// This is the Todo for the homepage, it's slightly different from the Todo for the admin page
+// This one is doesn't allow to edit the text or delete the todo
 export default function Todo({
   todo,
   toggleComplete,
   handleDelete,
-  handleEdit,
+  
   showTextOnly,
   showButtons,
 }) {
@@ -16,24 +17,7 @@ export default function Todo({
   const [volume, setVolume] = useState(1);
   const [newDescription, setNewDescription] = useState(todo.description);
 
-  const handleTitle = (e) => {
-    e.preventDefault();
-    if (todo.completed === true) {
-      setNewTitle(todo.title);
-    } else {
-      setNewTitle(e.target.value);
-    }
-  };
-
-  const handleDescription = (e) => {
-    e.preventDefault();
-    if (todo.completed === true) {
-      setNewDescription(todo.description);
-    } else {
-      setNewDescription(e.target.value);
-    }
-  };
-  
+ 
   
   console.log(todo);
 
@@ -98,43 +82,16 @@ export default function Todo({
               className="	 "
               style={{ textDecoration: todo.completed && "line-through", fontSize: "20px", fontWeight: "bold" }}
               value={newTitle}
-              onChange={handleTitle}
             />
             <input
               className="text-xs	"
               style={{ textDecoration: todo.completed && "line-through", fontSize: "20px" }}
               value={newDescription}
-              onChange={handleDescription}
-
             />
 
             </div>
          
-            {showButtons && (
-              <>
-                <button
-                  className="button-complete flex"
-                  onClick={() => toggleComplete(todo)}
-                >
-                  <CheckCircleIcon id="i" />
-                </button>
-
-                <button
-                  className="button-delete flex"
-                  onClick={() => handleDelete(todo.id)}
-                >
-                  <DeleteIcon id="i" />
-                </button>
-                <button
-                  className="button-edit flex"
-                  onClick={() => handleEdit(todo, newTitle)}
-                >
-                  <EditIcon id="i" />
-                </button>
-               
-              </>
-            )}
-
+          
             {todo.videoURL && (
               <div className="flex flex-col justify-center items-center flex-wrap">
                 <label

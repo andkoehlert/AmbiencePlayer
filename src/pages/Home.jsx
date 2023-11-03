@@ -1,7 +1,7 @@
 import React from "react";
 import Title from "../components/Title";
 import "../App.css";
-
+import HomeTodo from "../components/HomeTodo";
 import Todo from "../components/Todo";
 import AudioPlayer from "../components/AudioPlayer"
 import {
@@ -10,6 +10,9 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 import { db } from "../firebase";
+
+
+// Homepage for none logged in users which display the content of the todo/database
 
 function Home() {
   const [todos, setTodos] = React.useState([]);
@@ -26,13 +29,16 @@ function Home() {
     return () => unsub();
   }, []);
 
+
+
+  
   return (
     <div className="homepage-background  "> {/* Apply the class here */}      <div>
       
       </div>
       <div className="  ">
         {todos.map((todo) => (
-          <Todo key={todo.id} todo={todo} showButtons={false} /> 
+          <HomeTodo  key={todo.id} todo={todo} showButtons={false} /> 
           
         ))}
       </div>

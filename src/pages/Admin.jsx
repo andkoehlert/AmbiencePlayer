@@ -11,6 +11,10 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 
+
+// This is the adminpage that will be displayed when the user is logged in
+// This is the main admin page which uses the "addtodo" component to add new todos & "todo" to display it
+
 function Admin({ isAuthenticated }) {
   const [todos, setTodos] = React.useState([]);
 
@@ -65,6 +69,7 @@ showTextOnly={false} // Pass false to display everything
 toggleComplete={toggleComplete}
 handleDelete={handleDelete}
 handleEdit={handleEdit}
+
 />          
         ))}
       </div>

@@ -6,6 +6,11 @@ import { v4 } from "uuid";
 import { storage } from "../firebase";
 import AudioPlayer from './AudioPlayer';
 
+// The addtodo is the component that allows the user to add a todo to the database.
+// The user can add a title, description, image, audio file, and video file.
+// The user can also play the audio file they have selected.
+// It's gathering the data from specific folders in the database.
+
 export default function AddTodo() {
   const [title, setTitle] = useState("");
   const [audioFile, setAudioFile] = useState(null);
@@ -177,6 +182,7 @@ export default function AddTodo() {
         />
     <div>Choose either image or video</div>
     <div>In description, let user know to "tap screen to play" if video selected</div>
+    <div>You can still edit the Title & description afterwards. Click edit icon when done.</div>
 
       </div>
       <div>

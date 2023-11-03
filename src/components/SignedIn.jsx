@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { auth } from '../firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-
+// This handles the logout for admins
 const AuthDetails = () => {
   const [authUser, setAuthUser] = useState(null);
   const [loading, setLoading] = useState(true);
